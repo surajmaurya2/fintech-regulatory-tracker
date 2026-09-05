@@ -1,0 +1,762 @@
+{
+  "schema_version": 2,
+  "last_updated": "2026-08-05",
+  "companies": [
+    {
+      "id": "phonepe",
+      "name": "PhonePe",
+      "segments": [
+        "Payments",
+        "Insurance",
+        "Lending",
+        "Wealth Management"
+      ],
+      "regulators": [
+        "RBI",
+        "IRDAI",
+        "SEBI"
+      ],
+      "relevant_categories": [
+        "Payments / PPI / Wallets",
+        "Data Protection / IT / Cyber"
+      ]
+    },
+    {
+      "id": "paytm",
+      "name": "Paytm",
+      "segments": [
+        "Payments",
+        "Lending",
+        "Insurance"
+      ],
+      "regulators": [
+        "RBI",
+        "IRDAI",
+        "SEBI"
+      ],
+      "relevant_categories": [
+        "Payments / PPI / Wallets",
+        "Data Protection / IT / Cyber"
+      ]
+    },
+    {
+      "id": "razorpay",
+      "name": "Razorpay",
+      "segments": [
+        "Payments"
+      ],
+      "regulators": [
+        "RBI"
+      ],
+      "relevant_categories": [
+        "Payments / PPI / Wallets",
+        "Data Protection / IT / Cyber"
+      ]
+    },
+    {
+      "id": "cred",
+      "name": "CRED",
+      "segments": [
+        "Consumer Finance",
+        "Payments",
+        "Lending"
+      ],
+      "regulators": [
+        "RBI"
+      ],
+      "relevant_categories": [
+        "Payments / PPI / Wallets",
+        "Lending / Digital Lending",
+        "Data Protection / IT / Cyber"
+      ]
+    },
+    {
+      "id": "groww",
+      "name": "Groww",
+      "segments": [
+        "Wealth Management"
+      ],
+      "regulators": [
+        "SEBI"
+      ],
+      "relevant_categories": [
+        "Capital Markets / Securities",
+        "Data Protection / IT / Cyber"
+      ]
+    },
+    {
+      "id": "zerodha",
+      "name": "Zerodha",
+      "segments": [
+        "Wealth Management"
+      ],
+      "regulators": [
+        "SEBI"
+      ],
+      "relevant_categories": [
+        "Capital Markets / Securities",
+        "Data Protection / IT / Cyber"
+      ]
+    },
+    {
+      "id": "policybazaar",
+      "name": "PolicyBazaar",
+      "segments": [
+        "Insurance",
+        "Wealth Management"
+      ],
+      "regulators": [
+        "IRDAI",
+        "SEBI"
+      ],
+      "relevant_categories": [
+        "Insurance",
+        "KYC / AML",
+        "Data Protection / IT / Cyber"
+      ]
+    },
+    {
+      "id": "bharatpe",
+      "name": "BharatPe",
+      "segments": [
+        "Payments",
+        "Lending"
+      ],
+      "regulators": [
+        "RBI"
+      ],
+      "relevant_categories": [
+        "Payments / PPI / Wallets",
+        "Data Protection / IT / Cyber"
+      ]
+    },
+    {
+      "id": "pine-labs",
+      "name": "Pine Labs",
+      "segments": [
+        "Payments"
+      ],
+      "regulators": [
+        "RBI"
+      ],
+      "relevant_categories": [
+        "Payments / PPI / Wallets",
+        "Data Protection / IT / Cyber"
+      ]
+    },
+    {
+      "id": "cashfree-payments",
+      "name": "Cashfree Payments",
+      "segments": [
+        "Payments"
+      ],
+      "regulators": [
+        "RBI"
+      ],
+      "relevant_categories": [
+        "Payments / PPI / Wallets",
+        "Data Protection / IT / Cyber"
+      ]
+    },
+    {
+      "id": "billdesk",
+      "name": "BillDesk",
+      "segments": [
+        "Payments"
+      ],
+      "regulators": [
+        "RBI"
+      ],
+      "relevant_categories": [
+        "Payments / PPI / Wallets",
+        "Data Protection / IT / Cyber"
+      ]
+    },
+    {
+      "id": "payu-india",
+      "name": "PayU India",
+      "segments": [
+        "Payments"
+      ],
+      "regulators": [
+        "RBI"
+      ],
+      "relevant_categories": [
+        "Payments / PPI / Wallets",
+        "Data Protection / IT / Cyber"
+      ]
+    },
+    {
+      "id": "mobikwik",
+      "name": "MobiKwik",
+      "segments": [
+        "Payments",
+        "Lending"
+      ],
+      "regulators": [
+        "RBI"
+      ],
+      "relevant_categories": [
+        "Payments / PPI / Wallets",
+        "Data Protection / IT / Cyber"
+      ]
+    },
+    {
+      "id": "open",
+      "name": "Open",
+      "segments": [
+        "Neobank",
+        "Payments",
+        "Lending"
+      ],
+      "regulators": [
+        "RBI"
+      ],
+      "relevant_categories": [
+        "Payments / PPI / Wallets",
+        "Lending / Digital Lending",
+        "KYC / AML",
+        "Data Protection / IT / Cyber"
+      ]
+    },
+    {
+      "id": "jupiter",
+      "name": "Jupiter",
+      "segments": [
+        "Neobank",
+        "Payments",
+        "Lending"
+      ],
+      "regulators": [
+        "RBI"
+      ],
+      "relevant_categories": [
+        "Payments / PPI / Wallets",
+        "Lending / Digital Lending",
+        "KYC / AML",
+        "Data Protection / IT / Cyber"
+      ]
+    },
+    {
+      "id": "fi-money",
+      "name": "Fi Money",
+      "segments": [
+        "Neobank",
+        "Payments",
+        "Lending"
+      ],
+      "regulators": [
+        "RBI"
+      ],
+      "relevant_categories": [
+        "Payments / PPI / Wallets",
+        "Lending / Digital Lending",
+        "KYC / AML",
+        "Data Protection / IT / Cyber"
+      ]
+    },
+    {
+      "id": "navi",
+      "name": "Navi",
+      "segments": [
+        "Lending",
+        "Insurance"
+      ],
+      "regulators": [
+        "RBI",
+        "IRDAI"
+      ],
+      "relevant_categories": [
+        "Lending / Digital Lending",
+        "KYC / AML",
+        "Data Protection / IT / Cyber"
+      ]
+    },
+    {
+      "id": "kreditbee",
+      "name": "KreditBee",
+      "segments": [
+        "Lending"
+      ],
+      "regulators": [
+        "RBI"
+      ],
+      "relevant_categories": [
+        "Lending / Digital Lending",
+        "KYC / AML",
+        "Data Protection / IT / Cyber"
+      ]
+    },
+    {
+      "id": "moneyview",
+      "name": "Moneyview",
+      "segments": [
+        "Lending"
+      ],
+      "regulators": [
+        "RBI"
+      ],
+      "relevant_categories": [
+        "Lending / Digital Lending",
+        "KYC / AML",
+        "Data Protection / IT / Cyber"
+      ]
+    },
+    {
+      "id": "fibe",
+      "name": "Fibe",
+      "segments": [
+        "Lending"
+      ],
+      "regulators": [
+        "RBI"
+      ],
+      "relevant_categories": [
+        "Lending / Digital Lending",
+        "KYC / AML",
+        "Data Protection / IT / Cyber"
+      ]
+    },
+    {
+      "id": "lendingkart",
+      "name": "Lendingkart",
+      "segments": [
+        "Lending"
+      ],
+      "regulators": [
+        "RBI"
+      ],
+      "relevant_categories": [
+        "Lending / Digital Lending",
+        "KYC / AML",
+        "Data Protection / IT / Cyber"
+      ]
+    },
+    {
+      "id": "incred",
+      "name": "InCred",
+      "segments": [
+        "Lending"
+      ],
+      "regulators": [
+        "RBI"
+      ],
+      "relevant_categories": [
+        "Lending / Digital Lending",
+        "KYC / AML",
+        "Data Protection / IT / Cyber"
+      ]
+    },
+    {
+      "id": "yubi",
+      "name": "Yubi",
+      "segments": [
+        "Debt Infrastructure"
+      ],
+      "regulators": [
+        "RBI"
+      ],
+      "relevant_categories": [
+        "Lending / Digital Lending",
+        "KYC / AML",
+        "Data Protection / IT / Cyber"
+      ]
+    },
+    {
+      "id": "perfios",
+      "name": "Perfios",
+      "segments": [
+        "Fintech Infrastructure"
+      ],
+      "regulators": [
+        "RBI"
+      ],
+      "relevant_categories": [
+        "KYC / AML",
+        "Data Protection / IT / Cyber",
+        "Payments / PPI / Wallets"
+      ]
+    },
+    {
+      "id": "m2p-fintech",
+      "name": "M2P Fintech",
+      "segments": [
+        "Banking Infrastructure"
+      ],
+      "regulators": [
+        "RBI"
+      ],
+      "relevant_categories": [
+        "KYC / AML",
+        "Data Protection / IT / Cyber",
+        "Payments / PPI / Wallets"
+      ]
+    },
+    {
+      "id": "juspay",
+      "name": "Juspay",
+      "segments": [
+        "Payments Infrastructure"
+      ],
+      "regulators": [
+        "RBI"
+      ],
+      "relevant_categories": [
+        "Payments / PPI / Wallets",
+        "Data Protection / IT / Cyber"
+      ]
+    },
+    {
+      "id": "setu",
+      "name": "Setu",
+      "segments": [
+        "Open Banking"
+      ],
+      "regulators": [
+        "RBI"
+      ],
+      "relevant_categories": [
+        "KYC / AML",
+        "Data Protection / IT / Cyber",
+        "Payments / PPI / Wallets"
+      ]
+    },
+    {
+      "id": "decentro",
+      "name": "Decentro",
+      "segments": [
+        "Open Banking"
+      ],
+      "regulators": [
+        "RBI"
+      ],
+      "relevant_categories": [
+        "KYC / AML",
+        "Data Protection / IT / Cyber",
+        "Payments / PPI / Wallets"
+      ]
+    },
+    {
+      "id": "signzy",
+      "name": "Signzy",
+      "segments": [
+        "KYC & Identity"
+      ],
+      "regulators": [
+        "RBI"
+      ],
+      "relevant_categories": [
+        "KYC / AML",
+        "Data Protection / IT / Cyber"
+      ]
+    },
+    {
+      "id": "hyperverge",
+      "name": "HyperVerge",
+      "segments": [
+        "KYC & Identity"
+      ],
+      "regulators": [
+        "RBI"
+      ],
+      "relevant_categories": [
+        "KYC / AML",
+        "Data Protection / IT / Cyber"
+      ]
+    },
+    {
+      "id": "idfy",
+      "name": "IDfy",
+      "segments": [
+        "KYC & Identity"
+      ],
+      "regulators": [
+        "RBI"
+      ],
+      "relevant_categories": [
+        "KYC / AML",
+        "Data Protection / IT / Cyber"
+      ]
+    },
+    {
+      "id": "digio",
+      "name": "Digio",
+      "segments": [
+        "Digital Documentation"
+      ],
+      "regulators": [
+        "RBI"
+      ],
+      "relevant_categories": [
+        "KYC / AML",
+        "Data Protection / IT / Cyber"
+      ]
+    },
+    {
+      "id": "acko",
+      "name": "ACKO",
+      "segments": [
+        "Insurance"
+      ],
+      "regulators": [
+        "IRDAI"
+      ],
+      "relevant_categories": [
+        "Insurance",
+        "KYC / AML",
+        "Data Protection / IT / Cyber"
+      ]
+    },
+    {
+      "id": "insurancedekho",
+      "name": "InsuranceDekho",
+      "segments": [
+        "Insurance"
+      ],
+      "regulators": [
+        "IRDAI"
+      ],
+      "relevant_categories": [
+        "Insurance",
+        "KYC / AML",
+        "Data Protection / IT / Cyber"
+      ]
+    },
+    {
+      "id": "renewbuy",
+      "name": "RenewBuy",
+      "segments": [
+        "Insurance"
+      ],
+      "regulators": [
+        "IRDAI"
+      ],
+      "relevant_categories": [
+        "Insurance",
+        "KYC / AML",
+        "Data Protection / IT / Cyber"
+      ]
+    },
+    {
+      "id": "plum",
+      "name": "Plum",
+      "segments": [
+        "Insurance"
+      ],
+      "regulators": [
+        "IRDAI"
+      ],
+      "relevant_categories": [
+        "Insurance",
+        "KYC / AML",
+        "Data Protection / IT / Cyber"
+      ]
+    },
+    {
+      "id": "et-money",
+      "name": "ET Money",
+      "segments": [
+        "Wealth Management"
+      ],
+      "regulators": [
+        "SEBI"
+      ],
+      "relevant_categories": [
+        "Capital Markets / Securities",
+        "Data Protection / IT / Cyber"
+      ]
+    },
+    {
+      "id": "indmoney",
+      "name": "INDmoney",
+      "segments": [
+        "Wealth Management"
+      ],
+      "regulators": [
+        "SEBI"
+      ],
+      "relevant_categories": [
+        "Capital Markets / Securities",
+        "Data Protection / IT / Cyber"
+      ]
+    },
+    {
+      "id": "upstox",
+      "name": "Upstox",
+      "segments": [
+        "Wealth Management"
+      ],
+      "regulators": [
+        "SEBI"
+      ],
+      "relevant_categories": [
+        "Capital Markets / Securities",
+        "Data Protection / IT / Cyber"
+      ]
+    },
+    {
+      "id": "dhan",
+      "name": "Dhan",
+      "segments": [
+        "Wealth Management"
+      ],
+      "regulators": [
+        "SEBI"
+      ],
+      "relevant_categories": [
+        "Capital Markets / Securities",
+        "Data Protection / IT / Cyber"
+      ]
+    },
+    {
+      "id": "smallcase",
+      "name": "Smallcase",
+      "segments": [
+        "Wealth Management"
+      ],
+      "regulators": [
+        "SEBI"
+      ],
+      "relevant_categories": [
+        "Capital Markets / Securities",
+        "Data Protection / IT / Cyber"
+      ]
+    },
+    {
+      "id": "scripbox",
+      "name": "Scripbox",
+      "segments": [
+        "Wealth Management"
+      ],
+      "regulators": [
+        "SEBI"
+      ],
+      "relevant_categories": [
+        "Capital Markets / Securities",
+        "Data Protection / IT / Cyber"
+      ]
+    },
+    {
+      "id": "kuvera",
+      "name": "Kuvera",
+      "segments": [
+        "Wealth Management"
+      ],
+      "regulators": [
+        "SEBI"
+      ],
+      "relevant_categories": [
+        "Capital Markets / Securities",
+        "Data Protection / IT / Cyber"
+      ]
+    },
+    {
+      "id": "wint-wealth",
+      "name": "Wint Wealth",
+      "segments": [
+        "Wealth Management"
+      ],
+      "regulators": [
+        "SEBI"
+      ],
+      "relevant_categories": [
+        "Capital Markets / Securities",
+        "Data Protection / IT / Cyber"
+      ]
+    },
+    {
+      "id": "jar",
+      "name": "Jar",
+      "segments": [
+        "Savings & Investments"
+      ],
+      "regulators": [
+        "SEBI"
+      ],
+      "relevant_categories": [
+        "Capital Markets / Securities",
+        "Data Protection / IT / Cyber"
+      ]
+    },
+    {
+      "id": "slice",
+      "name": "Slice",
+      "segments": [
+        "Consumer Finance",
+        "Payments",
+        "Lending"
+      ],
+      "regulators": [
+        "RBI"
+      ],
+      "relevant_categories": [
+        "Payments / PPI / Wallets",
+        "Lending / Digital Lending",
+        "Data Protection / IT / Cyber"
+      ]
+    },
+    {
+      "id": "onecard",
+      "name": "OneCard",
+      "segments": [
+        "Consumer Finance",
+        "Payments",
+        "Lending"
+      ],
+      "regulators": [
+        "RBI"
+      ],
+      "relevant_categories": [
+        "Payments / PPI / Wallets",
+        "Lending / Digital Lending",
+        "Data Protection / IT / Cyber"
+      ]
+    },
+    {
+      "id": "uni-cards",
+      "name": "Uni Cards",
+      "segments": [
+        "Consumer Finance",
+        "Payments",
+        "Lending"
+      ],
+      "regulators": [
+        "RBI"
+      ],
+      "relevant_categories": [
+        "Payments / PPI / Wallets",
+        "Lending / Digital Lending",
+        "Data Protection / IT / Cyber"
+      ]
+    },
+    {
+      "id": "scapia",
+      "name": "Scapia",
+      "segments": [
+        "Travel Fintech"
+      ],
+      "regulators": [
+        "RBI"
+      ],
+      "relevant_categories": [
+        "Payments / PPI / Wallets",
+        "Data Protection / IT / Cyber"
+      ]
+    },
+    {
+      "id": "zaggle",
+      "name": "Zaggle",
+      "segments": [
+        "Corporate Expense Management"
+      ],
+      "regulators": [
+        "RBI"
+      ],
+      "relevant_categories": [
+        "Payments / PPI / Wallets",
+        "Data Protection / IT / Cyber",
+        "Governance / Compliance Function"
+      ]
+    }
+  ]
+}

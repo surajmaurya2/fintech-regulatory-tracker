@@ -1,0 +1,38 @@
+# Secrets — never commit API keys
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+
+# Scraped / generated data (keep data/fintechs.json)
+data/regulatory_tracker.db
+data/*.db
+data/*.sqlite
+data/*.sqlite3
+data/*.csv
+data/*_last_scrape.txt
+data/*_sample.html
+
+# Logs
+*.log
+pipeline/errors.log
+
+# Local runtime / editor
+.streamlit/secrets.toml
+.cursor/
+
+# Accidental local files
+*.xlsx
+*.xls
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
