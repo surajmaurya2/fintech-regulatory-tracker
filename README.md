@@ -30,7 +30,7 @@ scrape → store → summarize (LLM) → classify (LLM) → match to fintechs (L
 ## Setup
 
 ```bash
-git clone https://github.com/<your-username>/fintech-regulatory-tracker.git
+git clone https://github.com/surajmaurya2/fintech-regulatory-tracker.git
 cd fintech-regulatory-tracker
 ```
 
