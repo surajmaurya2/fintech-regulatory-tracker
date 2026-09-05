@@ -29,16 +29,12 @@ Currently three of five processing stages depend on LLM calls. I'm actively work
 
 `run_pipeline.py` runs steps 1–5 in order.
 
-## Setup
+## Quick start
 
 ```bash
 git clone https://github.com/surajmaurya2/fintech-regulatory-tracker.git
 cd fintech-regulatory-tracker
-```
 
-Create a virtual environment and install dependencies:
-
-```bash
 python -m venv .venv
 # Windows
 .venv\Scripts\activate
@@ -46,36 +42,38 @@ python -m venv .venv
 source .venv/bin/activate
 
 pip install -r requirements.txt
+python -m streamlit run app.py
 ```
 
-PDF text extraction uses pdfplumber (with PyPDF2 as fallback). OCR for scanned PDFs is optional and needs system **Tesseract** plus **Poppler** (`pytesseract` / `pdf2image`). Those are not installed by `pip install -r requirements.txt`. If they are missing, summarization still runs using extracted text or the title only.
+Open http://localhost:8501. On Windows, if `python` / `streamlit` are not on PATH, use `py` (`py -m pip install -r requirements.txt`, `py -m streamlit run app.py`).
 
-Add your OpenRouter key (never commit `.env`):
+The dashboard reads SQLite. A processed snapshot is shipped as `data/demo_regulatory_tracker.db` so search, filters, summaries, and PDF links work immediately after install. `data/fintechs.json` is also in the repo (matching needs it). Live CSVs, last-scrape files, and `data/regulatory_tracker.db` are gitignored.
+
+PDF text extraction uses pdfplumber (PyPDF2 as fallback). OCR for scanned PDFs is optional: system **Tesseract** and **Poppler**, plus `pytesseract` / `pdf2image`. Those are not installed by `pip install -r requirements.txt`. Without them, summarization still runs on extracted text or the title.
+
+## Pulling the latest circulars
+
+Scrapers hit RBI, SEBI, and IRDAI. Summarize, classify, and fintech matching call OpenRouter, so copy `.env.example` to `.env` and set `OPENROUTER_API_KEY` (do not commit `.env`):
 
 ```bash
 copy .env.example .env   # Windows
 # cp .env.example .env   # macOS / Linux
 ```
 
-Open `.env` and set:
-
 ```
 OPENROUTER_API_KEY=your_api_key_here
 ```
 
-Set the OpenRouter key **before** summarize / classify / match (or `run_pipeline.py`). Scrapers do not need it.
-
-To **browse the UI** with no API key, run Streamlit after install. The app loads `data/demo_regulatory_tracker.db` (a snapshot of processed circulars) if you have not run the pipeline yet.
-
-`data/fintechs.json` is included in this repo. `scripts/match_fintechs.py` will fail with `FileNotFoundError` if that file is missing. Leave it in place (you can edit the company list). Live CSVs, last-scrape dates, and `data/regulatory_tracker.db` are gitignored and are created on first pipeline run.
-
-Run the pipeline, then the app:
+Then:
 
 ```bash
-# Full refresh (scrape + process)
 python run_pipeline.py
+python -m streamlit run app.py
+```
 
-# Or step by step:
+`run_pipeline.py` writes `data/regulatory_tracker.db`. If that file exists, the app uses it instead of the snapshot. Individual steps:
+
+```bash
 python scrapers/rbi_scraper.py
 python scrapers/sebi_scraper.py
 python scrapers/irdai_scraper.py
@@ -83,12 +81,11 @@ python pipeline/setup_db.py
 python pipeline/summarize.py
 python pipeline/classify.py
 python scripts/match_fintechs.py
-
-python -m streamlit run app.py
 ```
 
-On Windows, if `python` / `streamlit` are not on PATH, use `py` instead (`py run_pipeline.py`, `py -m streamlit run app.py`).
+## Contact
 
+If you want to talk about this project, reach me on [LinkedIn](https://www.linkedin.com/in/surajmaurya1).
 
 ## Disclaimer
 
