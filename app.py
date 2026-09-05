@@ -15,7 +15,8 @@ import pandas as pd
 import streamlit as st
 
 PROJECT_ROOT = Path(__file__).resolve().parent
-DB_PATH = PROJECT_ROOT / "data" / "regulatory_tracker.db"
+LIVE_DB_PATH = PROJECT_ROOT / "data" / "regulatory_tracker.db"
+DEMO_DB_PATH = PROJECT_ROOT / "data" / "demo_regulatory_tracker.db"
 PIPELINE_SCRIPT = PROJECT_ROOT / "run_pipeline.py"
 
 SEVERITY_ORDER = {"High": 0, "Medium": 1, "Low": 2, "": 3}
@@ -36,14 +37,22 @@ def parse_fintech_matches(raw) -> list[str]:
     return [str(item).strip() for item in parsed if str(item).strip()]
 
 
-@st.cache_data(show_spinner=False)
-def load_circulars(db_mtime: float) -> pd.DataFrame:
-    """Load circulars once; db_mtime busts the cache when the DB file changes."""
-    del db_mtime  # used only as cache key
-    if not DB_PATH.exists():
-        raise FileNotFoundError(f"Database not found: {DB_PATH}")
+def resolve_db_path() -> tuple[Path, bool]:
+    """Prefer the live DB; fall back to the committed demo snapshot."""
+    if LIVE_DB_PATH.exists() and LIVE_DB_PATH.stat().st_size > 0:
+        return LIVE_DB_PATH, False
+    if DEMO_DB_PATH.exists() and DEMO_DB_PATH.stat().st_size > 0:
+        return DEMO_DB_PATH, True
+    raise FileNotFoundError(
+        f"No database found. Expected {LIVE_DB_PATH} or demo {DEMO_DB_PATH}"
+    )
 
-    conn = sqlite3.connect(DB_PATH)
+
+@st.cache_data(show_spinner=False)
+def load_circulars(db_path: str, db_mtime: float) -> pd.DataFrame:
+    """Load circulars once; path + mtime bust the cache when the DB changes."""
+    del db_mtime  # used only as cache key
+    conn = sqlite3.connect(db_path)
     try:
         df = pd.read_sql_query(
             """
@@ -206,8 +215,8 @@ def main() -> None:
             st.rerun()
 
     try:
-        db_mtime = DB_PATH.stat().st_mtime if DB_PATH.exists() else 0.0
-        df = load_circulars(db_mtime)
+        db_path, using_demo = resolve_db_path()
+        df = load_circulars(str(db_path), db_path.stat().st_mtime)
     except Exception as exc:  # noqa: BLE001
         st.error(f"Could not load database: {exc}")
         st.stop()
@@ -229,6 +238,12 @@ def main() -> None:
     )
 
     st.title("Regulatory Intelligence Tracker")
+    if using_demo:
+        st.info(
+            "Showing sample data (snapshot through early September 2026). "
+            "Add an OpenRouter key to `.env` and run `python run_pipeline.py` "
+            "to refresh live circulars."
+        )
     st.caption(f"{total} circulars tracked across RBI · SEBI · IRDAI")
 
     m1, m2, m3, m4 = st.columns(4)

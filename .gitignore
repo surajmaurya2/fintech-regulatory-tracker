@@ -11,9 +11,10 @@ __pycache__/
 venv/
 env/
 
-# Scraped / generated data (keep data/fintechs.json)
+# Scraped / generated data (keep data/fintechs.json and the demo DB)
 data/regulatory_tracker.db
 data/*.db
+!data/demo_regulatory_tracker.db
 data/*.sqlite
 data/*.sqlite3
 data/*.csv

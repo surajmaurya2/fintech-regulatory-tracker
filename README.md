@@ -18,11 +18,13 @@ A regulatory intelligence tracker for Indian fintech. It scrapes circulars from 
 scrape → store → summarize (LLM) → classify (LLM) → match to fintechs (LLM) → search UI
 ```
 
+Currently three of five processing stages depend on LLM calls. I'm actively working on reducing this: fintech matching in particular is the strongest candidate for a rules-based approach, since "is Company X affected by a Scheduled Commercial Banks circular" is closer to a structural/regulatory-license question than a language understanding one. The plan is to move matching to a rules engine keyed on entity type (bank, NBFC, payment aggregator, partner-bank neobank) and regulator, using the LLM only for the harder cases the rules can't resolve, with summarization and classification staying LLM-based since those genuinely require language understanding.
+
 1. **Scrape** — `scrapers/` pulls new circulars from RBI, SEBI, and IRDAI (incremental, with last-scrape dates).
 2. **Store** — `pipeline/setup_db.py` loads CSVs into `data/regulatory_tracker.db`.
 3. **Summarize** — `pipeline/summarize.py` downloads PDFs and writes factual summaries via OpenRouter.
 4. **Classify** — `pipeline/classify.py` assigns category, severity, and change type.
-5. **Match** — `scripts/match_fintechs.py` asks the model which companies in `data/fintechs.json` are materially affected.
+5. **Match** — `scripts/match_fintechs.py` reads `data/fintechs.json` (required) and asks the model which of those companies are materially affected.
 6. **Search** — `app.py` is a read-only Streamlit dashboard over the database.
 
 `run_pipeline.py` runs steps 1–5 in order.
@@ -46,6 +48,8 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
+PDF text extraction uses pdfplumber (with PyPDF2 as fallback). OCR for scanned PDFs is optional and needs system **Tesseract** plus **Poppler** (`pytesseract` / `pdf2image`). Those are not installed by `pip install -r requirements.txt`. If they are missing, summarization still runs using extracted text or the title only.
+
 Add your OpenRouter key (never commit `.env`):
 
 ```bash
@@ -58,6 +62,12 @@ Open `.env` and set:
 ```
 OPENROUTER_API_KEY=your_api_key_here
 ```
+
+Set the OpenRouter key **before** summarize / classify / match (or `run_pipeline.py`). Scrapers do not need it.
+
+To **browse the UI** with no API key, run Streamlit after install. The app loads `data/demo_regulatory_tracker.db` (a snapshot of processed circulars) if you have not run the pipeline yet.
+
+`data/fintechs.json` is included in this repo. `scripts/match_fintechs.py` will fail with `FileNotFoundError` if that file is missing. Leave it in place (you can edit the company list). Live CSVs, last-scrape dates, and `data/regulatory_tracker.db` are gitignored and are created on first pipeline run.
 
 Run the pipeline, then the app:
 
@@ -79,9 +89,6 @@ python -m streamlit run app.py
 
 On Windows, if `python` / `streamlit` are not on PATH, use `py` instead (`py run_pipeline.py`, `py -m streamlit run app.py`).
 
-## Screenshots
-
-[Add screenshot here]
 
 ## Disclaimer
 
@@ -93,7 +100,7 @@ This is an early prototype. Gaps I am still working through:
 
 - **No scheduler** — refreshes are manual (`run_pipeline.py` or the Streamlit sidebar button), not a daily cron/job.
 - **No hosted deployment** — the app runs locally; there is no production URL, auth, or multi-user setup.
-- **Matching quality** — LLM fintech mapping can miss companies or over-include them; it is not a legal mapping.
+- **Matching quality** — LLM fintech mapping can miss companies or over-include them; it is not a legal mapping. See note above on moving this to a rules-based approach.
 - **Small registry** — `data/fintechs.json` is a focused shortlist (~50 names), not the full Indian fintech market.
 - **Batch limits** — summarize / classify / match still use a `LIMIT_ROWS` cap per run, so large backfills take several passes.
 - **`--limit` on `run_pipeline.py`** is accepted but not yet passed through to child scripts.
@@ -105,4 +112,4 @@ This is an early prototype. Gaps I am still working through:
 
 ## License
 
-Personal / experimental project. Regulator websites remain the source of truth for all circulars.
+Experimental project. Regulator websites remain the source of truth for all circulars.
